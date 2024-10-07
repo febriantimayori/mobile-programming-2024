@@ -180,3 +180,6 @@ body: ListView(
 
 Hasil\
 ![alt text](/Week06/images/P4L3.png)
+
+## Tugas Praktikum 1: basic_layout_flutter
+![alt text](/Week06/images/TP1.png)
