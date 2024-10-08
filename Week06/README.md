@@ -183,3 +183,126 @@ Hasil\
 
 ## Tugas Praktikum 1: basic_layout_flutter
 ![alt text](/Week06/images/TP1.png)
+
+## Praktikum 5: Membangun Navigasi di Flutter
+### Langkah 1: Siapkan project baru
+Project belanja.
+![alt text](/Week06/images/P5L1.png)
+
+### Langkah 2: Mendefinisikan Route
+Route HomePage:
+
+```dart
+import 'package:flutter/material.dart';
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+}
+```
+
+Route ItemPage:
+
+```dart
+import 'package:flutter/material.dart';
+
+class ItemPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+}
+```
+
+### Langkah 3: Lengkapi Kode di main.dart
+```dart
+import 'package:flutter/material.dart';
+import 'package:belanja/pages/home_page.dart';
+import 'package:belanja/pages/item_page.dart';
+
+void main() {
+  runApp(MaterialApp(
+    initialRoute: '/',
+    routes: {
+      '/': (context) => HomePage(),
+      '/item': (context) => ItemPage(),
+    },
+  ));
+}
+```
+
+### Langkah 4: Membuat data model
+```dart
+class Item {
+  String? name;
+  int? price;
+
+  Item({this.name, this.price});
+}
+```
+
+### Langkah 5: Lengkapi kode di class HomePage
+```dart
+import 'package:belanja/models/item.dart';
+import 'package:flutter/material.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Item> items = [
+      Item(name: 'Sugar', price: 5000),
+      Item(name: 'Salt', price: 2000),
+    ];
+      throw UnimplementedError();
+  }
+}
+```
+
+### Langkah 6: Membuat ListView dan itemBuilder
+```dart
+body: Container(
+  margin: EdgeInsets.all(8),
+  child: ListView.builder(
+    padding: EdgeInsets.all(8),
+    itemCount: items.length,
+    itemBuilder: (context, index) {
+      final Item item = items[index];
+      return Card(
+        child: Container(
+          margin: EdgeInsets.all(8),
+          child: Row(children: [
+            Expanded(child: Text(item.name ?? 'Unknown Item')),
+            Expanded(
+                child: Text(
+              item.price.toString(),
+              textAlign: TextAlign.end,
+            ))
+          ]),
+        ),
+      );
+    },
+  ),
+)
+```
+
+Hasil\
+![alt text](/Week06/images/P5L6.png)
+
+### Langkah 7: Menambahkan aksi pada ListView
+```dart
+return Card(
+  child: InkWell(
+  onTap: () {
+    Navigator.pushNamed(context, '/item');
+  },
+```
+Terdapat exception saat mengklik salah satu item dalam daftar karena halaman target yang dituju belum memiliki widget body atau layout yang diimplementasikan, sehingga menyebabkan munculnya UnimplementedError.
+
+Hasil\
+![alt text](/Week06/images/P5L7.png)
