@@ -79,5 +79,5 @@ Hasil\
 ## 5. Jelaskan maksud dari tiap parameter yang ada di dalam plugin auto_size_text berdasarkan tautan pada dokumentasi ini !
 > https://pub.dev/packages/auto_size_text
 
-**Jawab:**
+**Jawab:**\
 ![alt text](assets/images/Soal-5.png)
